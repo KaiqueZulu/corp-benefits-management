@@ -1,0 +1,41 @@
+erDiagram
+    FUNCIONARIO {
+        NUMBER id_funcionario PK
+        VARCHAR nome
+        DATE data_admissao
+        NUMBER id_cargo FK
+    }
+
+    CARGO {
+        NUMBER id_cargo PK
+        VARCHAR nome
+        VARCHAR nivel
+    }
+
+    BENEFICIO {
+        NUMBER id_beneficio PK
+        VARCHAR nome
+        VARCHAR tipo
+        NUMBER valor_base
+        NUMBER validade_meses
+    }
+
+    CRITERIO_CONCESSAO {
+        NUMBER id_criterio PK
+        NUMBER id_beneficio FK
+        VARCHAR tipo_criterio
+        VARCHAR valor_referencia
+    }
+
+    FUNCIONARIO_BENEFICIO {
+        NUMBER id_funcionario FK
+        NUMBER id_beneficio FK
+        DATE data_concessao
+        NUMBER valor_concedido
+        VARCHAR status
+    }
+
+    FUNCIONARIO }o--|| CARGO : ocupa
+    FUNCIONARIO ||--o{ FUNCIONARIO_BENEFICIO : recebe
+    BENEFICIO ||--o{ FUNCIONARIO_BENEFICIO : concedido
+    BENEFICIO ||--o{ CRITERIO_CONCESSAO : possui
