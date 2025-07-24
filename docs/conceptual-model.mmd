@@ -1,41 +1,41 @@
 erDiagram
-    FUNCIONARIO {
-        NUMBER id_funcionario PK
-        VARCHAR nome
-        DATE data_admissao
-        NUMBER id_cargo FK
+    EMPLOYEE {
+        NUMBER employee_id PK
+        VARCHAR full_name
+        DATE hire_date
+        NUMBER position_id FK
     }
 
-    CARGO {
-        NUMBER id_cargo PK
-        VARCHAR nome
-        VARCHAR nivel
+    POSITION {
+        NUMBER position_id PK
+        VARCHAR name
+        VARCHAR level
     }
 
-    BENEFICIO {
-        NUMBER id_beneficio PK
-        VARCHAR nome
-        VARCHAR tipo
-        NUMBER valor_base
-        NUMBER validade_meses
+    BENEFIT {
+        NUMBER benefit_id PK
+        VARCHAR name
+        VARCHAR type
+        NUMBER base_value
+        NUMBER validity_months
     }
 
-    CRITERIO_CONCESSAO {
-        NUMBER id_criterio PK
-        NUMBER id_beneficio FK
-        VARCHAR tipo_criterio
-        VARCHAR valor_referencia
+    CONCESSION_CRITERIA {
+        NUMBER criteria_id PK
+        NUMBER benefit_id FK
+        VARCHAR criteria_type
+        VARCHAR reference_value
     }
 
-    FUNCIONARIO_BENEFICIO {
-        NUMBER id_funcionario FK
-        NUMBER id_beneficio FK
-        DATE data_concessao
-        NUMBER valor_concedido
+    EMPLOYEE_BENEFIT {
+        NUMBER employee_id FK
+        NUMBER benefit_id FK
+        DATE concession_date
+        NUMBER granted_value
         VARCHAR status
     }
 
-    FUNCIONARIO }o--|| CARGO : ocupa
-    FUNCIONARIO ||--o{ FUNCIONARIO_BENEFICIO : recebe
-    BENEFICIO ||--o{ FUNCIONARIO_BENEFICIO : concedido
-    BENEFICIO ||--o{ CRITERIO_CONCESSAO : possui
+    EMPLOYEE }o--|| POSITION : occupies
+    EMPLOYEE ||--o{ EMPLOYEE_BENEFIT : receives
+    BENEFIT ||--o{ EMPLOYEE_BENEFIT : granted
+    BENEFIT ||--o{ CONCESSION_CRITERIA : has
