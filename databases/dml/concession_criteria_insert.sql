@@ -1,0 +1,15 @@
+INSERT INTO concession_criteria(benefit_id, criteria_type, reference_value) VALUES(1, 'Tempo mínimo', '6 meses');
+INSERT INTO concession_criteria(benefit_id, criteria_type, reference_value) VALUES(2, 'Cargo elegível', 'Apenas pleno ou +');
+INSERT INTO concession_criteria(benefit_id, criteria_type, reference_value) VALUES(21, 'Tempo mínimo', '3 meses');
+INSERT INTO concession_criteria(benefit_id, criteria_type, reference_value) VALUES(22, 'Idade máxima', '5 anos');
+INSERT INTO concession_criteria(benefit_id, criteria_type, reference_value) VALUES(23, 'Meta batida', '100% vendas');
+INSERT INTO concession_criteria(benefit_id, criteria_type, reference_value) VALUES(24, 'Dependentes', 'Até 3');
+INSERT INTO concession_criteria(benefit_id, criteria_type, reference_value) VALUES(25, 'Participação em eventos', 'Mínimo 2/ano');
+INSERT INTO concession_criteria(benefit_id, criteria_type, reference_value) VALUES(26, 'Tempo mínimo', '12 meses');
+INSERT INTO concession_criteria(benefit_id, criteria_type, reference_value) VALUES(27, 'Região', 'Home Office autorizado');
+INSERT INTO concession_criteria(benefit_id, criteria_type, reference_value) VALUES(28, 'Avaliação de desempenho', '>= 8.0');
+INSERT INTO concession_criteria(benefit_id, criteria_type, reference_value) VALUES(1, 'Regime de trabalho', 'Tempo integral');
+INSERT INTO concession_criteria(benefit_id, criteria_type, reference_value) VALUES(2, 'Anos de empresa', '>= 1 ano');
+INSERT INTO concession_criteria(benefit_id, criteria_type, reference_value) VALUES(21, 'Cargo', 'Analista ou superior');
+INSERT INTO concession_criteria(benefit_id, criteria_type, reference_value) VALUES(22, 'Departamento', 'Financeiro');
+INSERT INTO concession_criteria(benefit_id, criteria_type, reference_value) VALUES(23, 'Meta de projeto', 'Entrega no prazo');

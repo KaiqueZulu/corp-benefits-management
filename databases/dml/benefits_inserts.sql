@@ -1,0 +1,10 @@
+INSERT INTO benefits(name, type, base_value, validity_months) VALUES('Vale Refeição', 'Alimentação', 500.00, 12);
+INSERT INTO benefits(name, type, base_value, validity_months) VALUES('Plano de Saúde', 'Saúde', 900.00, null);
+INSERT INTO benefits(name, type, base_value, validity_months) VALUES('Vale Transporte', 'Transporte', 300.00, 12);
+INSERT INTO benefits(name, type, base_value, validity_months) VALUES('Auxílio Creche', 'Auxílio', 200.00, NULL);
+INSERT INTO benefits(name, type, base_value, validity_months) VALUES('Bônus Anual', 'Financeiro', 1000.00, 12);
+INSERT INTO benefits(name, type, base_value, validity_months) VALUES('Seguro de Vida', 'Seguro', 150.00, 12);
+INSERT INTO benefits(name, type, base_value, validity_months) VALUES('Vale Cultura', 'Cultura', 100.00, NULL);
+INSERT INTO benefits(name, type, base_value, validity_months) VALUES('Plano Odontológico', 'Saúde', 250.00, 12);
+INSERT INTO benefits(name, type, base_value, validity_months) VALUES('Auxílio Home Office', 'Auxílio', 150.00, NULL);
+INSERT INTO benefits(name, type, base_value, validity_months) VALUES('Treinamento', 'Capacitação', 500.00, 6);
