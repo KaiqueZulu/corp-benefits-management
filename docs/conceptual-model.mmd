@@ -1,9 +1,7 @@
 erDiagram
-    FUNCIONARIO {
-        NUMBER id_funcionario PK
+    DEPARTAMENTO {
+        NUMBER id_departamento PK
         VARCHAR nome
-        DATE data_admissao
-        NUMBER id_cargo FK
     }
 
     CARGO {
@@ -12,30 +10,112 @@ erDiagram
         VARCHAR nivel
     }
 
+    LOCALIDADE {
+        NUMBER id_localidade PK
+        VARCHAR cidade
+        VARCHAR estado
+    }
+
+    FUNCIONARIO {
+        NUMBER id_funcionario PK
+        VARCHAR nome
+        DATE data_nascimento
+        DATE data_admissao
+        NUMBER id_cargo FK
+        NUMBER id_departamento FK
+        NUMBER id_localidade FK
+    }
+
     BENEFICIO {
         NUMBER id_beneficio PK
         VARCHAR nome
-        VARCHAR tipo
-        NUMBER valor_base
-        NUMBER validade_meses
+        VARCHAR status
     }
 
-    CRITERIO_CONCESSAO {
+    CRITERIO_ELEGIBILIDADE {
         NUMBER id_criterio PK
+        VARCHAR nome
+        VARCHAR condicao
+    }
+
+    BENEFICIO_ELEGIBILIDADE {
         NUMBER id_beneficio FK
-        VARCHAR tipo_criterio
-        VARCHAR valor_referencia
+        NUMBER id_criterio FK
     }
 
     FUNCIONARIO_BENEFICIO {
         NUMBER id_funcionario FK
         NUMBER id_beneficio FK
         DATE data_concessao
-        NUMBER valor_concedido
         VARCHAR status
     }
 
-    FUNCIONARIO }o--|| CARGO : ocupa
+    SOLICITACAO {
+        NUMBER id_solicitacao PK
+        NUMBER id_funcionario FK
+        NUMBER id_beneficio FK
+        DATE data_solicitacao
+    }
+
+    APROVACAO {
+        NUMBER id_solicitacao FK
+        DATE data_aprovacao
+        NUMBER id_responsavel FK
+        VARCHAR status
+        VARCHAR justificativa
+    }
+
+    HISTORICO_FUNCIONARIO {
+        NUMBER id_historico PK
+        NUMBER id_funcionario FK
+        VARCHAR campo_alterado
+        VARCHAR valor_antigo
+        VARCHAR valor_novo
+        DATE data_alteracao
+    }
+
+    HISTORICO_BENEFICIO {
+        NUMBER id_historico PK
+        NUMBER id_beneficio FK
+        VARCHAR campo_alterado
+        VARCHAR valor_antigo
+        VARCHAR valor_novo
+        DATE data_alteracao
+    }
+
+    HISTORICO_SOLICITACAO {
+        NUMBER id_historico PK
+        NUMBER id_solicitacao FK
+        VARCHAR campo_alterado
+        VARCHAR valor_antigo
+        VARCHAR valor_novo
+        DATE data_alteracao
+    }
+
+    HISTORICO_APROVACAO {
+        NUMBER id_historico PK
+        NUMBER id_solicitacao FK
+        VARCHAR campo_alterado
+        VARCHAR valor_antigo
+        VARCHAR valor_novo
+        DATE data_alteracao
+    }
+
+    CARGO ||--o{ FUNCIONARIO : ocupa
+    DEPARTAMENTO ||--o{ FUNCIONARIO : lota
+    LOCALIDADE ||--o{ FUNCIONARIO : localiza
+
     FUNCIONARIO ||--o{ FUNCIONARIO_BENEFICIO : recebe
     BENEFICIO ||--o{ FUNCIONARIO_BENEFICIO : concedido
-    BENEFICIO ||--o{ CRITERIO_CONCESSAO : possui
+
+    BENEFICIO ||--o{ BENEFICIO_ELEGIBILIDADE : possui
+    CRITERIO_ELEGIBILIDADE ||--o{ BENEFICIO_ELEGIBILIDADE : define
+
+    FUNCIONARIO ||--o{ SOLICITACAO : solicita
+    BENEFICIO ||--o{ SOLICITACAO : referente_a
+    SOLICITACAO ||--|| APROVACAO : gera
+
+    FUNCIONARIO ||--o{ HISTORICO_FUNCIONARIO : registra
+    BENEFICIO ||--o{ HISTORICO_BENEFICIO : registra
+    SOLICITACAO ||--o{ HISTORICO_SOLICITACAO : registra
+    SOLICITACAO ||--o{ HISTORICO_APROVACAO : registra
